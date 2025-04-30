@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GetItems } from '../api/fortApi'
+import { getItems } from '../api/fortApi'
 import CardProduct from '../components/CardProduct'
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                setproducts(await GetItems())
+                setproducts(await getItems())
             } catch (error) {
                 console.error(error)
             }

@@ -73,17 +73,23 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
+button{
+  cursor: pointer;
+}
+
 .product_list{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
-.card_product{
-  /* max-width: 300px; */
+/* .card_product{
+  
 }
+max-width: 300px; */
 
 .card_product img{
   width: 100%;
 }
+
 
