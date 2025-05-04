@@ -3,7 +3,7 @@ import { saveProductToLocalStorage } from "../utils/localStorageControler";
 
 const CardProduct = ({ product }) => {
     const addToBasket = () => {
-        saveProductToLocalStorage(product.mainId)
+        saveProductToLocalStorage(product.mainId, product?.price?.finalPrice || 0)
     }
 
     const cardStyle = {

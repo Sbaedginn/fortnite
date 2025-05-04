@@ -1,30 +1,47 @@
-import { Link } from "react-router-dom";
-import { decrementProductInBasket, incrementProductInBasket, saveProductToLocalStorage } from "../utils/localStorageControler";
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { decrementProductInBasket, incrementProductInBasket } from "../utils/localStorageControler";
 
-const CardBasket = ({ product }) => {
-    const [count, setCount] = useState(product.count);
+const CardBasket = ({ basketItem, productApi, recalculateTotal, remove }) => {
+    const [count, setCount] = useState(basketItem.count)
 
     const increment = () => {
-        incrementProductInBasket(product.productId)
+        incrementProductInBasket(basketItem.productId)
         setCount(count + 1)
+        recalculateTotal()
     }
+
     const decrement = () => {
-        decrementProductInBasket(product.productId)
-        setCount(count - 1)
+        if (count == 1) {
+            const isConf = confirm("Do you want to delete it?")
+            if (isConf) {
+                productRemove()
+            }
+        } else {
+            decrementProductInBasket(basketItem.productId)
+            setCount(count - 1)
+            recalculateTotal()
+        }
+    }
+
+    const productRemove = () => {
+        console.log("c-remove");
+
+        remove(productApi.id)
     }
 
     return (
         <div>
-            {/* <h3>{products.find(item => item.id === product.productId)?.displayName}</h3> */}
-            <p>Price: {product.price?.finalPrice || 0} V-Bucks</p>
-            <p>Count: <button onClick={decrement}>-</button> {count} <button onClick={increment}>+</button></p>
-            <button>Remove</button>
+            <h3>{productApi?.name}</h3>
+            <p>Price: {productApi?.price || 0} V-Bucks</p>
+            <p>
+                Count:
+                <button onClick={decrement}>-</button>
+                {count}
+                <button onClick={increment}>+</button>
+            </p>
+            <button onClick={productRemove}>Remove</button>
         </div>
-
     )
 }
-
-
 
 export default CardBasket
