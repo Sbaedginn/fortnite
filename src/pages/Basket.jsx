@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getProductsFromLocalStorage, removeProductFromLocalStorage } from '../utils/localStorageControler'
+import { clearBasketLocalStorage, getProductsFromLocalStorage, removeProductFromLocalStorage } from '../utils/localStorageControlerBasket'
 import { getShopItemById } from '../api/fortApi'
 import ProductBasket from '../components/CardBasket'
+import { createOrder } from '../utils/localStorageControlerOrders'
 
 const Basket = () => {
     const [basket, setBasket] = useState([])
@@ -46,6 +47,13 @@ const Basket = () => {
         fetchDetails(products)
     }, [])
 
+    const createNewOrder = () => {
+        createOrder(basket, totalSumm)
+        clearBasketLocalStorage()
+        setBasket([])
+        setProductDetails({})
+    }
+
     return (
         <>
             <h2>Basket</h2>
@@ -64,7 +72,7 @@ const Basket = () => {
                             />
                         ))}
                         <h3>Total: {totalSumm} V-Bucks</h3>
-                        <button>
+                        <button onClick={createNewOrder}>
                             New order</button>
                     </div>
                 )

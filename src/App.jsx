@@ -5,6 +5,8 @@ import ProductDetails from './pages/ProductDetails'
 import Home from './pages/Home'
 import Basket from './pages/Basket'
 import { getItems } from './api/fortApi'
+import Orders from './pages/Orders'
+import OrderDetails from './pages/OrderDetails'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -25,6 +27,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/product/:id' element={<ProductDetails products={products} />} />
         <Route path='/basket' element={<Basket />} />
+        <Route path='/orders' element={<Orders />} />
+        <Route path='/order/:id' element={<OrderDetails />} />
       </Routes>
 
     </BrowserRouter>

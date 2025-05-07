@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { decrementProductInBasket, incrementProductInBasket } from "../utils/localStorageControler";
+import { decrementProductInBasket, incrementProductInBasket } from "../utils/localStorageControlerBasket";
 
 const CardBasket = ({ basketItem, productApi, recalculateTotal, remove }) => {
     const [count, setCount] = useState(basketItem.count)

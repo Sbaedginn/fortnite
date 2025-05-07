@@ -55,9 +55,12 @@ export const saveProductToLocalStorage = (productId, price) => {
 export const getProductsFromLocalStorage = () => JSON.parse(localStorage.getItem("basket")) || []
 
 export const removeProductFromLocalStorage = (productId) => {
-    console.log("l-remove", productId);
     
     const oldBasket = JSON.parse(localStorage.getItem("basket"))
     const newBasket = oldBasket.filter((item) => item.productId != productId)
     localStorage.setItem("basket", JSON.stringify(newBasket))
+}
+
+export const clearBasketLocalStorage = () => {
+    localStorage.removeItem("basket")
 }

@@ -43,6 +43,8 @@ export const getItems = async () => {
 }
 export async function getShopItemById(itemId) {
   try {
+   
+    
     const res = await fetch(`${API_URL}/items/get?id=${itemId}`, {
       headers: {
         Authorization: API_KEY
@@ -52,6 +54,7 @@ export async function getShopItemById(itemId) {
       console.error('error')
     }
     const data = await res.json()
+    console.log(itemId, data, data.item);
     return data.item
   } catch (error) {
     throw new Error(`Ошибка при поиске товара: ${error.message}`);
