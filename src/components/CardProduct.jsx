@@ -48,6 +48,10 @@ const CardProduct = ({ product }) => {
                     fontWeight: "bold",
                     display: "inline-block",
                     marginTop: "10px",
+                    background: product.colors?.color2 || "#139bCb",
+                    borderRadius: "20px",
+                    border: "none",
+                    padding: "5px 10px"
                 }}
                 onClick={addToBasket}
                 >Add to basket</button>

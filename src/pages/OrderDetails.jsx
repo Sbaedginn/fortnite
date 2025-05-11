@@ -4,14 +4,17 @@ import CardProduct from "../components/CardProduct";
 import { useEffect, useState } from "react";
 import { getShopItemById } from "../api/fortApi";
 import { normalizeProductData } from "../utils/normalizeProduct";
+import Preloader from "../components/Preloader";
 
 const OrderDetails = () => {
     const { id } = useParams()
     const order = getOrderFromLocalStorage(id)
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const fetchProducts = async () => {
+            setLoading(true)
             try {
                 const fetchedProducts = await Promise.all(
                     order.idsWithCount.map(async (item) => {
@@ -23,9 +26,11 @@ const OrderDetails = () => {
             } catch (error) {
                 console.error(error);
             }
+            setLoading(false)
         }
 
         fetchProducts()
+        
     }, [])
 
     return (
@@ -34,11 +39,15 @@ const OrderDetails = () => {
             <p>Time: {order.time}</p>
             <p>TotalSumm: {order.totalSumm} V-bucks</p>
             <h3>Products: </h3>
-            <div className="order_products">
-                {products.map((product, index) => (
-                    <CardProduct key={index} product={product} />
-                ))}
-            </div>
+            {loading ? (
+                <Preloader />
+            ) : (
+                <div className="order_products">
+                    {products.map((product, index) => (
+                        <CardProduct key={index} product={product} />
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
