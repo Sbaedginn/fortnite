@@ -1,10 +1,32 @@
 import { useParams } from "react-router-dom";
 import { getOrderFromLocalStorage } from "../utils/localStorageControlerOrders";
 import CardProduct from "../components/CardProduct";
+import { useEffect, useState } from "react";
+import { getShopItemById } from "../api/fortApi";
+import { normalizeProductData } from "../utils/normalizeProduct";
 
 const OrderDetails = () => {
     const { id } = useParams()
     const order = getOrderFromLocalStorage(id)
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const fetchedProducts = await Promise.all(
+                    order.idsWithCount.map(async (item) => {
+                        const data = await getShopItemById(item.productId)
+                        return normalizeProductData(data)
+                    })
+                )
+                setProducts(fetchedProducts)
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchProducts()
+    }, [])
 
     return (
         <div className="order_detail">
@@ -13,12 +35,9 @@ const OrderDetails = () => {
             <p>TotalSumm: {order.totalSumm} V-bucks</p>
             <h3>Products: </h3>
             <div className="order_products">
-                {
-                    order.idsWithCount.map((product, n) => (
-                        <CardProduct key={n}/>
-                    )
-                    )
-                }
+                {products.map((product, index) => (
+                    <CardProduct key={index} product={product} />
+                ))}
             </div>
         </div>
     )
