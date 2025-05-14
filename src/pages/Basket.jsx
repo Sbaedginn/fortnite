@@ -3,6 +3,7 @@ import { clearBasketLocalStorage, getProductsFromLocalStorage, removeProductFrom
 import { getShopItemById } from '../api/fortApi'
 import ProductBasket from '../components/CardBasket'
 import { createOrder } from '../utils/localStorageControlerOrders'
+import '../styles/basket.css'
 
 const Basket = () => {
     const [basket, setBasket] = useState([])
@@ -59,9 +60,9 @@ const Basket = () => {
             <h2>Basket</h2>
             {
                 basket.length === 0 ? (
-                    <p>Basket is empty</p>
+                    <p className="empty-message">Basket is empty</p>
                 ) : (
-                    <div>
+                    <div className="basket-container">
                         {basket.map((product) => (
                             <ProductBasket
                                 key={product.productId}
@@ -71,12 +72,12 @@ const Basket = () => {
                                 remove={removeProductFromBasket}
                             />
                         ))}
-                        <h3>Total: {totalSumm} V-Bucks</h3>
-                        <button onClick={createNewOrder}>
-                            New order</button>
+                        <h3 className="total">Total: {totalSumm} V-Bucks</h3>
+                        <button className="order-button" onClick={createNewOrder}>New order</button>
                     </div>
                 )
             }
+
         </>
     )
 }

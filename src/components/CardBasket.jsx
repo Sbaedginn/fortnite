@@ -30,7 +30,7 @@ const CardBasket = ({ basketItem, productApi, recalculateTotal, remove }) => {
     }
 
     return (
-        <div>
+        <div className="card-basket">
             <h3>{productApi?.name}</h3>
             <p>Price: {productApi?.price || 0} V-Bucks</p>
             <p>
@@ -39,9 +39,9 @@ const CardBasket = ({ basketItem, productApi, recalculateTotal, remove }) => {
                 {count}
                 <button onClick={increment}>+</button>
             </p>
-            <button onClick={productRemove}>Remove</button>
+            <button className="remove-button" onClick={productRemove}>Remove</button>
         </div>
-    )
+    )    
 }
 
 export default CardBasket

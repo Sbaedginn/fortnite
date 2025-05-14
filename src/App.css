@@ -7,6 +7,14 @@
   --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
+body {
+  background-color: #0f172a;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
 .header {
   background: linear-gradient(90deg, var(--fortnite-purple), var(--fortnite-blue));
   color: var(--text-color);
