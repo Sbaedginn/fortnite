@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getProductsFromLocalStorage } from '../utils/localStorageControlerBasket'
 
-const Header = () => {
+const Header = ({ openBasket }) => {
     const [basketCount, setBasketCount] = useState(0)
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Header = () => {
                 <nav className="nav">
                     <Link to='/' className="nav-link">Shop</Link>
                     <Link to='/basket' className="nav-link">
-                        Basket 
+                    <button onClick={openBasket}>Basket</button>
                         {basketCount > 0 && (
                             <span className="basket-count">{basketCount}</span>
                         )}
