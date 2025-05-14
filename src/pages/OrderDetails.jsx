@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getShopItemById } from "../api/fortApi";
 import { normalizeProductData } from "../utils/normalizeProduct";
 import Preloader from "../components/Preloader";
+import '../styles/order.css'
 
 const OrderDetails = () => {
     const { id } = useParams()
@@ -34,7 +35,7 @@ const OrderDetails = () => {
     }, [])
 
     return (
-        <div className="order_detail">
+        <div className="order_detail container">
             <h2>Numder order: {id}</h2>
             <p>Time: {order.time}</p>
             <p>TotalSumm: {order.totalSumm} V-bucks</p>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import '../styles/preloader.css'
 
 const Preloader = () => {
     const [dots, setDots] = useState("");

@@ -26,21 +26,41 @@ const Order = ({ order, n }) => {
     return (
         <div className="order">
             <h3>Number order: {n}</h3>
+            <p>Time: {order.time}</p>
             {loading ? (
                 <Preloader />
             ) : (
-                <ul>
-                    {products.map((product) => (
-                        <li key={product.productId}>
-                            Name: {product.productData?.name || "Loading..."} || Count: {product.count} || ID: {product.productId}
-                        </li>
-                    ))}
-                </ul>
+
+                
+                <table className="order_table">
+                    <thead>
+                        
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Count</th>
+                            <th>Product</th>
+                        </tr>
+                    </thead>
+                    <tbody>{products.map((product) => (
+                        <tr key={product.productId}>
+                            <td>{product.productId}</td>
+                            <td>{product.count}</td>
+                            <td>{product.productData?.name || "Loading..."}</td>
+                        </tr>
+
+                    ))}</tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan='2'>Total: </td>
+                            <td>{order.totalSumm} V-bucks</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
             )}
 
-            <p>Time: {order.time}</p>
-            <p>TotalSumm: {order.totalSumm} V-bucks</p>
-            <Link to={`/order/${n}`}>Show more</Link>
+            <Link to={`/order/${n}`} className="order_link">Show more</Link>
         </div >
     )
 }

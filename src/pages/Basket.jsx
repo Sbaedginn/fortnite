@@ -5,6 +5,7 @@ import ProductBasket from '../components/CardBasket'
 import { createOrder } from '../utils/localStorageControlerOrders'
 import '../styles/basket.css'
 
+
 const Basket = () => {
     const [basket, setBasket] = useState([])
     const [productDetails, setProductDetails] = useState({})
@@ -53,6 +54,7 @@ const Basket = () => {
         clearBasketLocalStorage()
         setBasket([])
         setProductDetails({})
+        window.dispatchEvent(new Event('basketChanged'));
     }
 
     return (

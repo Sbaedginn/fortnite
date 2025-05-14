@@ -1,0 +1,12 @@
+img{
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+.preloader {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+    animation: fadein 0.5s ease-in-out;
+  }

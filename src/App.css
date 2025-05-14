@@ -5,6 +5,7 @@
   --fortnite-orange: #ff3c00;
   --text-color: white;
   --shadow-color: rgba(0, 0, 0, 0.3);
+  --fortnite-pink: #ec4899;
 }
 
 body {
@@ -13,6 +14,10 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
+}
+
+.container{
+  padding: 60px 20px;
 }
 
 .header {

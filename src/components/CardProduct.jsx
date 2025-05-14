@@ -47,12 +47,13 @@ const CardProduct = ({ product }) => {
                     color: product.colors?.color1 || "#20eef8",
                     textDecoration: "none",
                     fontWeight: "bold",
-                    display: "inline-block",
+                    display: "block",
                     marginTop: "10px",
                     background: product.colors?.color2 || "#139bCb",
                     borderRadius: "20px",
                     border: "none",
-                    padding: "5px 10px"
+                    padding: "5px 10px",
+                    margin: "15px auto 0 auto"
                 }}
                 onClick={addToBasket}
                 >Add to basket</button>
