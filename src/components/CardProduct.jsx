@@ -4,6 +4,7 @@ import { saveProductToLocalStorage } from "../utils/localStorageControlerBasket"
 const CardProduct = ({ product }) => {
     const addToBasket = () => {
         saveProductToLocalStorage(product.mainId, product?.price?.finalPrice || 0)
+        window.dispatchEvent(new Event('basketChanged'));
     }
 
     const cardStyle = {
