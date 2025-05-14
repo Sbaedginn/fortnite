@@ -1,0 +1,93 @@
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: #fde047;
+}
+
+h3 {
+    color: #ec4899;
+    font-size: 1.2rem;
+}
+
+.basket-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.card-basket {
+    background-color: #1e293b;
+    border: 2px solid #7c3aed;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px #7c3aed;
+}
+
+.card-basket h3 {
+    margin-top: 0;
+    color: #fde047;
+}
+
+.card-basket p {
+    margin: 0.5rem 0;
+}
+
+.card-basket button {
+    background-color: #7c3aed;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.3rem;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-basket button:hover {
+    background-color: #a78bfa;
+}
+
+.remove-button {
+    background-color: #dc2626;
+    margin-top: 0.5rem;
+}
+
+.remove-button:hover {
+    background-color: #ef4444;
+}
+
+.total {
+    font-size: 1.5rem;
+    color: #fde047;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.order-button {
+    background-color: #ec4899;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+    transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+    background-color: #f472b6;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-top: 2rem;
+}

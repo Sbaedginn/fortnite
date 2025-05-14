@@ -1,14 +1,39 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getProductsFromLocalStorage } from '../utils/localStorageControlerBasket'
 
 const Header = () => {
+    const [basketCount, setBasketCount] = useState(0)
+
+    useEffect(() => {
+        const updateBasketCount = () => {
+            const basket = getProductsFromLocalStorage()
+            setBasketCount(basket.length)
+        };
+    
+        updateBasketCount();
+    
+        window.addEventListener('basketChanged', updateBasketCount)
+    
+        return () => {
+            window.removeEventListener('basketChanged', updateBasketCount)
+        };
+    }, []);
+    
+
     return (
-        <header>
-            <div className="container">
-                <h1>Fort-shop</h1>
-                <nav>
-                    <Link to='/' >Shop</Link>
-                    <Link to='/basket'>Basket</Link>
-                    <Link to='/orders'>Orders</Link>
+        <header className="header">
+            <div className="container header-container">
+                <h1 className="logo">Fort-shop</h1>
+                <nav className="nav">
+                    <Link to='/' className="nav-link">Shop</Link>
+                    <Link to='/basket' className="nav-link">
+                        Basket 
+                        {basketCount > 0 && (
+                            <span className="basket-count">{basketCount}</span>
+                        )}
+                    </Link>
+                    <Link to='/orders' className="nav-link">Orders</Link>
                 </nav>
             </div>
         </header>

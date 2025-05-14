@@ -1,42 +1,70 @@
-/* #root {
-  max-width: 1280px;
+:root {
+  --fortnite-purple: #4e00c2;
+  --fortnite-blue: #007cf0;
+  --fortnite-yellow: #feda00;
+  --fortnite-orange: #ff3c00;
+  --text-color: white;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: #0f172a;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: linear-gradient(90deg, var(--fortnite-purple), var(--fortnite-blue));
+  color: var(--text-color);
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 1rem;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  /* font-family: 'Burbank Big Condensed', sans-serif; */
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--fortnite-yellow);
+  text-shadow: 2px 2px #000;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav {
+  display: flex;
+  gap: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.card {
-  padding: 2em;
+.nav-link:hover {
+  color: var(--fortnite-yellow);
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.basket-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: var(--fortnite-orange);
+  color: var(--text-color);
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}

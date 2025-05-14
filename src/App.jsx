@@ -7,6 +7,7 @@ import Basket from './pages/Basket'
 import { getItems } from './api/fortApi'
 import Orders from './pages/Orders'
 import OrderDetails from './pages/OrderDetails'
+import './App.css'
 
 function App() {
   const [products, setProducts] = useState([]);
