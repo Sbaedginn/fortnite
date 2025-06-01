@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import ProductDetails from './pages/ProductDetails'
 import Home from './pages/Home'
@@ -22,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -32,7 +33,7 @@ function App() {
         <Route path='/order/:id' element={<OrderDetails />} />
       </Routes>
 
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

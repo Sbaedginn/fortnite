@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+import loadingGif from "./../assets/loading.gif"
 import '../styles/preloader.css'
 
 const Preloader = () => {
@@ -14,7 +16,7 @@ const Preloader = () => {
 
     return (
         <>
-            <img src="/loading.gif" />
+            <img src={loadingGif} />
             <div className="preloader">Loading{dots}</div>
         </>
     );

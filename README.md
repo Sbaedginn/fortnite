@@ -4,3 +4,4 @@
 
 
 Проeкт доступен по ссылке:
+https://sbaedginn.github.io/fortnite/#/
